@@ -15,6 +15,18 @@ const routes = [
     name: 'Login',
     meta: { layout: "simple", title: "Connexion" },
     component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+  },
+  {
+    path: '/supply',
+    name: 'Supply',
+    meta: { layout: "navigation", title: "Supply" },
+    component: () => import(/* webpackChunkName: "supply" */ '../views/Supply.vue')
+  },
+  {
+    path: '/forcol',
+    name: 'Forcol',
+    meta: { layout: "navigation", title: "Forcol" },
+    component: () => import(/* webpackChunkName: "forcol" */ '../views/Forcol.vue')
   }
 ]
 
