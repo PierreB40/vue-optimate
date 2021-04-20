@@ -40,6 +40,7 @@
   <v-btn
     icon
     color="white"
+    @click="$emit('click-info')"
   >
     <v-icon>mdi-information-outline</v-icon>
   </v-btn>

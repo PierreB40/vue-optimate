@@ -2,6 +2,7 @@
   <v-main>
     <toolbar
       @toogle-drawer="drawer = !drawer"
+      @click-info="modalInfoOpen = true"
     />
     <v-navigation-drawer
       v-model="drawer"
@@ -28,18 +29,21 @@
       </v-list-item>
     </v-navigation-drawer>
     <slot />
+    <app-informations-modal :open="modalInfoOpen" @close="modalInfoOpen = false" />
   </v-main>
 </template>
 
 <script>
 import Toolbar from '@/components/global/Toolbar'
+import AppInformationsModal from '@/components/global/AppInformationsModal.vue'
 
 export default {
   name: 'NavigationLayout',
-  components: { Toolbar },
+  components: { Toolbar, AppInformationsModal },
   data() {
     return {
       drawer: false,
+      modalInfoOpen: false,
       title: '',
       links: [
         {
