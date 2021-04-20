@@ -1,7 +1,11 @@
 <template>
-  <v-card style="box-shadow: 5px 5px 20px #00000029">
+  <v-card
+    style="box-shadow: 5px 5px 20px #00000029"
+    class="pa-4"
+  >
     <v-card-title style="color: #979797;">LISTE DES ARTICLES</v-card-title>
     <v-simple-table
+      class="custom-table"
       height="300"
       fixed-header
       dense
@@ -98,7 +102,49 @@ export default {
 </script>
 
 <style scoped>
+
+  thead th {
+    background-color: #0F0F61!important;
+    color: white!important;
+    height: 40px!important;
+    font-weight: bold!important;
+    font-size: 13px!important;
+    letter-spacing: -0.26px;
+  }
+
+  th:first-child {
+    border-top-left-radius: 7px;
+  }
+  
+  th:last-child {
+    border-top-right-radius: 7px;
+  }
+
+  table td:not(:last-child), table th:not(:last-child) {
+    border-right: 1px solid lightgrey;
+  }
+
+  tbody > tr:hover {
+    background-color: #DAF1FD!important;
+  }
+  
   tbody > tr:nth-child(odd) {
     background-color: #F4F4F4;
   }
+
+  tbody > tr > td:not(:last-child) {
+    color: #0F0F61;
+    letter-spacing: -0.22px;
+    font-weight: bold;
+  }
+
+  .custom-table >>> .v-data-table__wrapper::-webkit-scrollbar {
+    width: 10px;
+    background: lightgray;
+  }
+
+  .custom-table >>> .v-data-table__wrapper::-webkit-scrollbar-thumb {
+    background: #0F0F61;
+  }
+
 </style>
