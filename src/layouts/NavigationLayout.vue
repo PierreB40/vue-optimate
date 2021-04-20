@@ -14,7 +14,7 @@
       />
       <v-toolbar-title class="pl-0">
         <v-img
-          :src="require('@/assets/logo.png')"
+          :src="require('@/assets/white-logo.png')"
           width="160"
         />
       </v-toolbar-title>
