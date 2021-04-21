@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    meta: { layout: "navigation", title: "Dashboard" },
+    meta: { layout: "navigation", title: "Fortel Mobility" },
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
   },
   {
