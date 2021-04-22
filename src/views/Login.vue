@@ -1,7 +1,7 @@
 <template>
   <v-row
     style="height: 100%"
-    clas="mb-0"
+    class="ma-0"
   >
     <v-col
       class="pa-0"
@@ -80,7 +80,7 @@
   </v-row>
 </template>
 
-<style>
+<style scoped>
   .login-card {
     display: flex;
     align-items: center;
@@ -98,5 +98,21 @@
     color: #979797;
     letter-spacing: -0.4px;
     font-size: 20px;
+  }
+
+  .v-text-field >>> .v-input__control {
+    border-radius: 7px;
+  }
+
+  .v-text-field >>> .v-input__control > .v-input__slot {
+    box-shadow: 0px 3px 6px #00000029;
+  }
+
+  .v-text-field >>> .v-input__prepend-outer {
+    margin-top: 0px!important;
+  }
+
+  .v-text-field >>> .v-chip {
+    height: 38px;
   }
 </style>
