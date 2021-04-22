@@ -102,7 +102,6 @@ export default {
 </script>
 
 <style scoped>
-
   thead th {
     background-color: #0F0F61!important;
     color: white!important;
@@ -112,27 +111,27 @@ export default {
     letter-spacing: -0.26px;
   }
 
-  th:first-child {
+  .custom-table >>> th:first-child {
     border-top-left-radius: 7px;
   }
   
-  th:last-child {
+  .custom-table >>> th:last-child {
     border-top-right-radius: 7px;
   }
 
-  table td:not(:last-child), table th:not(:last-child) {
+  .custom-table >>> table td:not(:last-child), table th:not(:last-child) {
     border-right: 1px solid lightgrey;
   }
 
-  tbody > tr:hover {
+  .custom-table >>> tbody > tr:hover {
     background-color: #DAF1FD!important;
   }
   
-  tbody > tr:nth-child(odd) {
+  .custom-table >>> tbody > tr:nth-child(odd) {
     background-color: #F4F4F4;
   }
 
-  tbody > tr > td:not(:last-child) {
+  .custom-table >>> tbody > tr > td:not(:last-child) {
     color: #0F0F61;
     letter-spacing: -0.22px;
     font-weight: bold;
