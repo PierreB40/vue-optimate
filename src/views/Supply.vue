@@ -19,8 +19,10 @@
         >
           <v-btn
             rounded
-            class="primary--text custom-shadow"
-            color="white"
+            class="custom-shadow"
+            :color="hasFilters ? 'primary': 'white'"
+            :class="{ 'white--text': hasFilters, 'primary--text': !hasFilters }"
+            @click="filtersOpen = true"
           >
             <v-icon
               left
@@ -29,6 +31,21 @@
             </v-icon>
             Filtres
           </v-btn>
+          <div
+            v-for="(filter, f) in filters"
+            :key="f"
+          >
+            <v-chip
+              v-for="(select, s) in filter.selected"
+              :key="s"
+              color="primary"
+              class="ml-2"
+              close
+              @click:close="removeFilter(filter.title, select)"
+            >
+              {{ select }}
+            </v-chip>
+          </div>
           <v-spacer></v-spacer>
           <v-text-field
             v-model="searchInput"
@@ -205,18 +222,29 @@
         </tr>
       </template>
     </v-data-table>
+    <filters-modal
+      :open="filtersOpen"
+      @close="filtersOpen = false"
+      @change="filters = $event"
+    />
   </v-container>
 </template>
 
 <script>
+import EventBus from "@/plugins/eventBus"
+import FiltersModal from "@/components/supply/FiltersModal.vue"
+
   export default {
     name: 'Supply',
+    components: { FiltersModal },
     data() {
       return {
         search: '',
         searchInput: '',
         expanded: [],
+        filters: [],
         singleExpand: false,
+        filtersOpen: true,
         headers: [
           { text: 'Famille', value: 'famille', align: 'center', },
           { text: 'Code Modele', value: 'code', align: 'center', },
@@ -288,6 +316,13 @@
       }
     },
     computed: {
+      hasFilters() {
+        let res = false
+        this.filters.forEach(element => {
+          if(element.selected.length > 0) res = true;
+        });
+        return res
+      },
       sumPrevision() {
         return this.data.reduce((a, b) =>  a + Number(b.prevision.replace(' ', '')) , 0)
       },
@@ -305,6 +340,11 @@
       },
       sumPasts() {
         return this.data.reduce((a, b) =>  a + Number(b.passer.replace(' ', '')) , 0)
+      }
+    },
+    methods: {
+      removeFilter(title, item) {
+        EventBus.$emit("DELETE_FILTER", {title, item})
       }
     }
   }
