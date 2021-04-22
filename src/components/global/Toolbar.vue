@@ -55,6 +55,7 @@ export default {
           immediate: true,
           handler(to) {
               this.title = to.meta.title ? to.meta.title : ""
+              this.$emit('change-route')
           }
       },
   }

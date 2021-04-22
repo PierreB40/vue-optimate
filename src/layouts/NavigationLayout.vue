@@ -3,6 +3,7 @@
     <toolbar
       @toogle-drawer="drawer = !drawer"
       @click-info="modalInfoOpen = true"
+      @change-route="drawer = false"
     />
     <v-navigation-drawer
       v-model="drawer"
