@@ -218,12 +218,7 @@
         expanded: [],
         singleExpand: false,
         headers: [
-          {
-            text: 'Famille',
-            align: 'center',
-            sortable: false,
-            value: 'famille',
-          },
+          { text: 'Famille', value: 'famille', align: 'center', },
           { text: 'Code Modele', value: 'code', align: 'center', },
           { text: 'Libelle', value: 'libelle', align: 'center', },
           { text: 'Colori', value: 'colori', align: 'center', },
@@ -326,6 +321,10 @@
 
   .custom-table >>> .v-data-table__wrapper {
     padding: 10px;
+  }
+
+  .custom-table >>> .v-data-table-header th.sortable .v-data-table-header__icon:before {
+    color: white;
   }
 
   .custom-table >>> table {
