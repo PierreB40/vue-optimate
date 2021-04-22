@@ -244,7 +244,7 @@ import FiltersModal from "@/components/supply/FiltersModal.vue"
         expanded: [],
         filters: [],
         singleExpand: false,
-        filtersOpen: true,
+        filtersOpen: false,
         headers: [
           { text: 'Famille', value: 'famille', align: 'center', },
           { text: 'Code Modele', value: 'code', align: 'center', },
